@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NHT.ASM.Api</name>
+    </assembly>
+    <members>
+        <member name="T:NHT.ASM.Api.ActionResults.CustomActionResult">
+            <summary>
+            Base class for custom action results to override things like status code or error message.
+            </summary>
+            <remarks>Taken from: https://gist.github.com/jadhavajay/7638562.</remarks>
+        </member>
+        <member name="F:NHT.ASM.Api.ActionResults.CustomActionResult.Message">
+            <summary>
+            The user friendly error message
+            </summary>
+        </member>
+        <member name="F:NHT.ASM.Api.ActionResults.CustomActionResult.Exception">
+            <summary>
+            Exception that has been thrown
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomActionResult.#ctor(System.Net.HttpStatusCode,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomActionResult.#ctor(System.Net.HttpStatusCode,System.String,System.Exception,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Creates a new instance of the CustomActionResult class.
+            </summary>
+            <param name="statusCode">The custom HTTP status code.</param>
+            <param name="errorMessage">The error message added to the body of the result.</param>
+            <param name="exception">The exception that is added to the body of the result,</param>
+            <param name="hostingEnvironment">The hostingenvironment to check whether to send the exception message to the client</param>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomActionResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomActionResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:NHT.ASM.Api.ActionResults.CustomErrorHandlingController">
+            <summary>
+            Extends default ApiController error handling
+            </summary>
+        </member>
+        <member name="F:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.HostingEnvironment">
+            <summary>
+            The current hosting environment
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Instantiates new instance and sets the <see cref="F:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.HostingEnvironment"/>
+            </summary>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.BadRequest(System.String)">
+            <summary>
+            Creates a 400 Bad Request response with the specified error message.
+            </summary>
+            <param name="message">The user-visible error message.</param>
+            <returns>A <see cref="T:NHT.ASM.Api.ActionResults.CustomActionResult"/> with the error message</returns>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.BadRequest(System.Collections.Generic.List{System.String})">
+            <summary>
+            Creates a 400 Bad Request response with the specified error messages.
+            </summary>
+            <param name="messages">The user-visible error messages.</param>
+            <returns>A <see cref="T:NHT.ASM.Api.ActionResults.CustomActionResult"/> with the error message.</returns>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.InternalServerError(System.Exception)">
+            <summary>
+            Creates a 500 Internal server error response with a user friendly error messages.
+            </summary>
+            <param name="exception">The error</param>
+            <returns>A <see cref="T:NHT.ASM.Api.ActionResults.CustomActionResult"/> with the error message.</returns>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.NotFound(System.String)">
+            <summary>
+            Creates a 440 Not Found resonse with a user friendly error message
+            </summary>
+            <param name="message">The user-visible error message.</param>
+            <returns>A <see cref="T:NHT.ASM.Api.ActionResults.CustomActionResult"/> with the error message.</returns>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.Created(System.String)">
+            <summary>
+            Creates a 201 Created resonse with a user friendly success message
+            </summary>
+            <param name="message">The user-visible success message.</param>
+            <returns>A <see cref="T:NHT.ASM.Api.ActionResults.CustomActionResult"/> with the success message.</returns>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.NoContent(System.String)">
+            <summary>
+            Creates a 204 NoContent resonse with a user friendly error message
+            </summary>
+            <param name="message">The user-visible NoContent message.</param>
+            <returns>A <see cref="T:NHT.ASM.Api.ActionResults.CustomActionResult"/> with the  message.</returns>
+        </member>
+        <member name="M:NHT.ASM.Api.ActionResults.CustomErrorHandlingController.Forbidden(System.String)">
+            <summary>
+            Creates a 403 Forbidden resonse with a user friendly error message
+            </summary>
+            <param name="message">The user-visible forbidden message.</param>
+            <returns>A <see cref="T:NHT.ASM.Api.ActionResults.CustomActionResult"/> with the  message.</returns>
+        </member>
+        <member name="T:NHT.ASM.Api.ConfigureSwaggerOptions">
+            <summary>
+            Configuration for Swagger Open API documentation
+            Source: https://github.com/Microsoft/aspnet-api-versioning/wiki/API-Documentation#aspnet-core
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Api.ConfigureSwaggerOptions.#ctor(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Instantiates the class
+            </summary>
+            <param name="provider"></param>
+        </member>
+        <member name="M:NHT.ASM.Api.ConfigureSwaggerOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <summary>
+            Set the configuration
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:NHT.ASM.Api.Controllers.CustomBaseController`2">
+            <summary>
+            Base controller to inherit base Web API controller logic from
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <typeparam name="TDto"></typeparam>
+        </member>
+        <member name="F:NHT.ASM.Api.Controllers.CustomBaseController`2.Logic">
+            <summary>
+            The logic containing all business rules used in the controllers
+            </summary>
+        </member>
+        <member name="F:NHT.ASM.Api.Controllers.CustomBaseController`2.Context">
+            <summary>
+            The Database context used in the controllers
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Api.Controllers.CustomBaseController`2.#ctor(NHT.ASM.Bll.Interfaces.ILogic{`0,`1},NHT.ASM.Infrastructure.IAsmContext,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Instantiates the base controller
+            </summary>
+            <param name="logic"></param>
+            <param name="context"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:NHT.ASM.Api.Controllers.CustomBaseController`2.CreateSelectListItems(System.Linq.Expressions.Expression{System.Func{`0,Microsoft.AspNetCore.Mvc.Rendering.SelectListItem}},System.String,System.String)">
+            <summary>
+            Creates Select list for UI of entity based on the columns specified for Text and Value fields.
+            It will retrieve data only for columns which are specified
+            </summary>
+            <param name="columns">list of columns for creating Select List Item. For example, new SelectListItem { Value = x.Id.ToString(), Text = x.Name } </param>
+            <param name="defaultText">Default text for Select List</param>
+            <param name="defaultValue">Default value for Select List</param>
+            <returns></returns>
+        </member>
+        <member name="M:NHT.ASM.Api.Controllers.CustomBaseController`2.Post(`1)">
+            <summary>
+            Add a new entity
+            </summary>
+            <param name="dto">Data Transfer Object for the entity</param>
+            <returns></returns>
+        </member>
+        <member name="M:NHT.ASM.Api.Controllers.CustomBaseController`2.Put(`1)">
+            <summary>
+            Update an existing entity 
+            </summary>
+            <param name="updatedDto">Data Transfer Object for the entity</param>
+            <returns></returns>
+        </member>
+        <member name="M:NHT.ASM.Api.Controllers.CustomBaseController`2.Delete(System.Int32)">
+            <summary>
+            Removes an entity from the database
+            </summary>
+            <param name="id">Unique Identifier</param>
+            <returns></returns>
+        </member>
+        <member name="T:NHT.ASM.Api.Controllers.V1.UserController">
+            <summary>
+            Controller for the <see cref="T:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto"/>
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Api.Controllers.V1.UserController.#ctor(NHT.ASM.Bll.Interfaces.IUserLogic,NHT.ASM.Infrastructure.IAsmContext,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Instantiates new instance of controller
+            </summary>
+            <param name="userLogic">Logic class for this controller</param>
+            <param name="context">DB context</param>
+            <param name="hostingEnvironment">The current hosting environment</param>
+        </member>
+        <member name="M:NHT.ASM.Api.Controllers.V1.UserController.Get">
+            <summary>
+            Gets the collection of <see cref="T:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NHT.ASM.Api.Controllers.V1.UserController.Get(System.Int32)">
+            <summary>
+            Get a specific <see cref="T:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto" /> based on an unique identifier
+            </summary>
+            <param name="id">Unique identifier</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

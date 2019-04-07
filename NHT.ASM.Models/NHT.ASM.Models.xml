@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NHT.ASM.Models</name>
+    </assembly>
+    <members>
+        <member name="T:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto">
+            <summary>
+            Dto for <see cref="T:NHT.ASM.Models.Entities.UserModel.User"/>
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.FirstName">
+            <summary>
+            Gets or sets the First name
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.LastName">
+            <summary>
+            Gets or sets the Last name
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.UserName">
+            <summary>
+            Gets or sets the User name
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.Password">
+            <summary>
+            Gets or sets the Password
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.IsActive">
+            <summary>
+            Gets or sets the Isactive flag
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.EmailId">
+            <summary>
+            Gets or sets the Email Id
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.UserTypeId">
+            <summary>
+            Gets or sets the User Type Id
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.UserType">
+            <summary>
+            Gets or sets the user type
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Models.DataTransferObjects.UserModel.UserDto.Validate(System.ComponentModel.DataAnnotations.ValidationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:NHT.ASM.Models.DataTransferObjects.UserModel.UserTypeDto">
+            <summary>
+            Dto for <see cref="T:NHT.ASM.Models.Entities.UserModel.UserType"/>
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.DataTransferObjects.UserModel.UserTypeDto.Value">
+            <summary>
+            Gets or sets the value (Admin,Secretary or Member)
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Models.DataTransferObjects.UserModel.UserTypeDto.Validate(System.ComponentModel.DataAnnotations.ValidationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:NHT.ASM.Models.Entities.UserModel.User">
+            <summary>
+            Entity for user details
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.User.FirstName">
+            <summary>
+            Gets or sets the First name
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.User.LastName">
+            <summary>
+            Gets or sets the Last name
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.User.UserName">
+            <summary>
+            Gets or sets the User name
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.User.Password">
+            <summary>
+            Gets or sets the Password
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.User.IsActive">
+            <summary>
+            Gets or sets the Isactive flag
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.User.EmailId">
+            <summary>
+            Gets or sets the Email Id
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.User.UserTypeId">
+            <summary>
+            Gets or sets the User Type Id
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Models.Entities.UserModel.User.Validate(System.ComponentModel.DataAnnotations.ValidationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:NHT.ASM.Models.Entities.UserModel.UserType">
+            <summary>
+            Entity for User Type
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.UserType.Id">
+            <summary>
+            Gets or sets the unique Id
+            </summary>
+        </member>
+        <member name="P:NHT.ASM.Models.Entities.UserModel.UserType.Value">
+            <summary>
+            Gets or sets the value (Admin,Secretary or Member)
+            </summary>
+        </member>
+        <member name="M:NHT.ASM.Models.Entities.UserModel.UserType.Validate(System.ComponentModel.DataAnnotations.ValidationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:NHT.ASM.Models.Enums.UserTypeEnum">
+            <summary>
+            Enum for defining user type
+            </summary>
+        </member>
+    </members>
+</doc>

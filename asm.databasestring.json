@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "EvaluatorContextDb": "Server=DESKTOP-3K0PD9I\\SQLDev;Database=ASM_local;user id=admin;password=Passw0rd;Trusted_Connection=false;ConnectRetryCount=0",
+    "DbDeleteAndReCreate": "true"
+  }
+}
